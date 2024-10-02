@@ -3,4 +3,4 @@
 <h2>서버 터미널 pem</h2><br>
 
 ##pem
-[PEM Download](https://github.com/rmflsdl4/ProjectSinerva/releases/download/ppk/sinervaPPK.ppk)
+[PEM Download](https://github.com/Wjfjs/MinervaKPaaS/blob/main/minerva95.pem)
