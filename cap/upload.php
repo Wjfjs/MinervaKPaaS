@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['image'])) {
     $fileType = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION)); // 확장자 추출
 
     // 현재 날짜와 시간을 파일 이름에 추가 (2019-03-23-13-12-33 형식)
-    $newFileName = $fileName . "_" . date("Y-m-d-H-i-s") . "." . $fileType; // 콜론을 하이픈으로 변경
+    $newFileName = $fileName . "_" . date("Y-m-d-H-i-s") . "." . $fileType;
     $targetFilePath = $targetDir . $newFileName;
 
     $allowedTypes = ['jpg', 'jpeg', 'png', 'gif'];
