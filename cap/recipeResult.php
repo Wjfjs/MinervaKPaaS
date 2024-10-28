@@ -40,6 +40,10 @@
         }
     ?>
 
+    <div>
+        <a href="main.php">메인으로 이동하기</a>
+    </div>
+
     <!-- 이미지 변경을 위한 버튼 -->
     <div style="margin-top: 20px;">
         <button onclick="document.getElementById('fileInput').click()">이미지 변경하기</button>
