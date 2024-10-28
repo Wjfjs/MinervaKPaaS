@@ -117,8 +117,8 @@ $conn->close();
                 </div>
 
                 <!-- 이미지 변경을 위한 버튼 -->
-                <div style="margin-top: 20px;">
-                    <button onclick="document.getElementById('fileInput').click()">이미지 변경하기</button>
+                <div>
+                    <button id="imgChgBtn" onclick="document.getElementById('fileInput').click()">이미지 변경하기</button>
                 </div>
 
                 <!-- 이미지 파일 선택을 위한 숨겨진 input -->
