@@ -74,7 +74,7 @@
     ?>
 
     <div>
-        <a href="main.php">메인으로 이동하기</a>
+        <a href="recipe.php">메인으로 이동하기</a>
     </div>
 
     <!-- 이미지 변경을 위한 버튼 -->
