@@ -55,6 +55,7 @@
             echo "이미지가 선택되지 않았습니다.";
         }
 
+        //여기에서 사진이름(fileName)이런거 db에서 찾아서 가져오면 될듯한데요
         $query = "SELECT * FROM test";
         $result = mysqli_query($conn, $query);
 
@@ -67,6 +68,7 @@
             echo "쿼리 실행 실패: " . mysqli_error($conn);
         }
 
+        //db 연결해제 및 결과 해제
         mysqli_free_result($result);
         $conn->close();
     ?>
