@@ -7,6 +7,22 @@
     </head>
     <body>
 
+    <?php   //db연결
+        $host = '127.0.0.1';
+        $username = 'root';
+        $password = 'admin';
+        $database = 'kpaas';
+    
+        $conn = mysqli_connect($host, $username, $password, $database);
+    
+        if ($conn->connect_error) {
+            die("연결 실패: " . $conn->connect_error);
+        }
+        else {
+            echo "db연결 완료 <br>";
+        }
+    ?>
+
     <?php
         $targetDir = "uploads/";
 
@@ -38,6 +54,21 @@
         } else {
             echo "이미지가 선택되지 않았습니다.";
         }
+
+        $query = "SELECT * FROM test";
+        $result = mysqli_query($conn, $query);
+
+        if ($result) {
+            // 결과 처리
+            while ($row = mysqli_fetch_assoc($result)) {
+                echo "레시피: " . $row['name'] . "<br>";
+            }
+        } else {
+            echo "쿼리 실행 실패: " . mysqli_error($conn);
+        }
+
+        mysqli_free_result($result);
+        $conn->close();
     ?>
 
     <div>
