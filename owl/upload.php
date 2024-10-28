@@ -1,4 +1,4 @@
-<?php
+<?php  //사진 로컬 저장
     $targetDir = "uploads/";
     if (!is_dir($targetDir)) {
         mkdir($targetDir, 0777, true); // 폴더가 없으면 생성
@@ -9,7 +9,7 @@
         $fileName = pathinfo($file['name'], PATHINFO_FILENAME); // 파일 이름만 추출
         $fileType = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION)); // 확장자 추출
 
-        // 현재 날짜와 시간을 파일 이름에 추가
+        // 현재 날짜와 시간을 파일 이름에 추가 (2019-03-23-13-12-33 형식)
         $newFileName = $fileName . "_" . date("Y-m-d-H-i-s") . "." . $fileType;
         $targetFilePath = $targetDir . $newFileName;
 

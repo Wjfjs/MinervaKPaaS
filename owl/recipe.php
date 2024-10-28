@@ -20,11 +20,11 @@
         <div class="content">
             <!-- Left Section -->
             <div class="left-section">
-                <form id="uploadForm" action="recipeResult.php" method="POST" enctype="multipart/form-data">
+                <form id="uploadForm" action="recipe_result.php" method="POST" enctype="multipart/form-data">
                     <div id="dropArea" class="upload-area">
                         <p>이미지를 드래그하거나 버튼을 클릭하여 업로드하세요.</p>
-                        <input type="file" id="fileInput" style="display: none;">
-                        <button onclick="document.getElementById('fileInput').click();">이미지를 첨부해주세요</button>
+                        <input type="file" id="fileInput" name="image" style="display: none;">
+                        <button type="button" onclick="document.getElementById('fileInput').click();">이미지를 첨부해주세요</button>
                     </div>
                 </form>
                 <div class="log-text">

@@ -75,7 +75,7 @@ header .made {
     height: 450px;
 }
 
-.upload-area button {
+.upload-area a {
     padding: 10px 20px;
     font-size: 16px;
     color: white;
