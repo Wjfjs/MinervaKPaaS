@@ -1,5 +1,6 @@
 <?php  //사진 로컬 저장
     $targetDir = "/var/www/html/uploads/";
+    //$targetDir = "uploads/";
     if (!is_dir($targetDir)) {
         mkdir($targetDir, 0777, true); // 폴더가 없으면 생성
     }

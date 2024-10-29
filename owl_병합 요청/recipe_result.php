@@ -21,6 +21,7 @@ if ($conn->connect_error) {
 }
 
 $targetDir = "/var/www/html/uploads/";
+//$targetDir = "uploads/";
 $filePath = '';
 
 // 이미지 업로드 처리
@@ -85,7 +86,7 @@ $conn->close();
 			</div>
             <div class="logo">
                 <img src="./img/owl.png" alt="부엉이 로고">
-                <h3>부엉이의 레시피</h3>
+                <h3><a href="recipe.php" style="text-decoration: none; color: black;">부엉이의 레시피</a></h3>
             </div>
 			<div class="logo-right">
 				<div class="made">made by minerva</div>
