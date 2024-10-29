@@ -191,3 +191,26 @@ header .made {
 	pointer-events: none;
 	background-color: #6c6c6c;
 }
+
+
+
+input {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #333;
+    border: 2px solid #6c7ae0;
+    border-radius: 50px;
+    outline: none;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+input:focus {
+    border-color: #5464d2;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+input::placeholder {
+    color: #bbb;
+}

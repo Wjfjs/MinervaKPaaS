@@ -32,11 +32,41 @@
 								<input type="file" id="fileInput" name="image" style="display: none;">
 								<div class="button">이미지를 첨부하기</div>
 							</label>
-							
 							<label>
 								<input type="file" id="fileInputCamera" style="display: none;">
 								<div class="button">카메라로 촬영하기(모바일)</div>
 							</label>
+							<div id="text-eof" class="button" style="padding: 5px 100px; display: none;" onclick="
+								main = document.querySelector('.upload-area-buttons');
+								eof = document.getElementById('text-eof');
+								input = document.createElement('input');
+								input.type = 'text';
+								input.name = 'text[]';
+								main.insertBefore(input, eof);
+								input.focus();
+							">+</div>
+							<div id="text-submit" class="button" style="padding: 7px 20px; display: none;" onclick="
+								const uploadForm = document.getElementById('uploadForm');
+								uploadForm.submit();
+							">이 재료로 추천받기</div>
+							<div id="text-start" class="button" style="background-color: red;" onclick="
+								main = document.querySelector('.upload-area-buttons');
+								labels = main.querySelectorAll('label');
+								eof = document.getElementById('text-eof');
+								submit = document.getElementById('text-submit');
+								start = document.getElementById('text-start');
+								labels[0].style.display = 'none';
+								labels[1].style.display = 'none';
+								eof.style.display = '';
+								submit.style.display = '';
+								start.style.display = 'none';
+								input = document.createElement('input');
+								input.type = 'text';
+								input.name = 'text[]';
+								main.insertBefore(input, eof);
+								input.focus();
+							">재료 입력하기</div>
+							
 						</div>
                     </div>
                 </form>

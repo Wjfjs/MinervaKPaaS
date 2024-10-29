@@ -109,6 +109,11 @@ header .made {
     text-align: center;
 }
 
+.spices-list span {
+    font-size: 18px;
+    margin: 40px 10px 20px 0;
+}
+
 .recipe-item {
     display: flex;
     align-items: flex-start;

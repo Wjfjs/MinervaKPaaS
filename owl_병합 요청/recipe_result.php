@@ -1,4 +1,12 @@
 <?php
+//테스트 - 글자입력
+if (isset($_POST['text'])){
+	$text_list = $_POST['text'];
+}else{
+	$text_list = ["입력", "안함"];
+}
+
+
 // DB 연결
 $host = '211.188.54.226';
 $username = 'owl';
@@ -111,12 +119,13 @@ $conn->close();
 				</form>
 				
                 <div class="log-text">
-                    log 현재 삽입된 재료는 <span>___ / ___ / ___</span> 입니다
+                    log 현재 삽입된 재료는 <span><?= implode(" / ", $text_list) ?></span> 입니다
                 </div>
                 <div class="spices-list">
-                    <p>많이 쓰는 조미료 list</p>
-                    소금 &nbsp; 설탕 &nbsp; 후추 &nbsp; 고춧가루 &nbsp; 미원(다시다)<br>
-                    간장 &nbsp; 굴소스 &nbsp; 고추장 &nbsp; 된장 &nbsp; 참(들)기름
+                    많이 쓰는 조미료 list<br>
+                    <span>소금</span> <span>설탕</span> <span>후추</span> <span>고춧가루</span> <br>
+                    <span>미원(다시다)</span> <span>간장</span> <span>굴소스</span> <span>고추장</span> <br>
+                    <span>된장</span> <span>참(들)기름</span>
                 </div>
             </div>
 
