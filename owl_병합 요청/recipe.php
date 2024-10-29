@@ -10,11 +10,15 @@
 <body>
     <div class="container">
         <header>
+			<div class="logo-left">
+			</div>
             <div class="logo">
                 <img src="./img/owl.png" alt="부엉이 로고">
                 <h3>부엉이의 레시피</h3>
             </div>
-            <div class="made">made by minerva</div>
+			<div class="logo-right">
+				<div class="made">made by minerva</div>
+			</div>
         </header>
 
         <div class="content">

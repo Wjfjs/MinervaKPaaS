@@ -6,11 +6,15 @@ body {
 }
 
 .container {
-    width: 1900px;
     height: 100px;
     margin: 0 auto;
     padding: 20px;
 }
+
+header {
+	display: flex;
+}
+
 
 header {
     display: flex;
@@ -21,13 +25,21 @@ header {
     font-size: 24px;
 }
 
+
+header .logo-left {
+	width: 100px;
+	flex-grow: 1;
+}
+header .logo-right {
+	width: 100px;
+	flex-grow: 1;
+}
+
 header .logo {
-    position: relative;
     height: 90px;
     margin: 0 auto;
     display: flex;
     align-items: center;
-    margin-right: 580px;
 }
 
 header .logo img {
@@ -54,15 +66,30 @@ header .made {
     padding-top: 20px;
 }
 
+
+
 .left-section, .right-section {
-    width: 50%;
     padding: 20px;
     box-sizing: border-box;
+	width: 100%;
+	flex-grow: 1;
 }
 
 .left-section {
     border-right: 3px solid #333;
 }
+
+@media (orientation: portrait) {
+    .content {
+        flex-direction: column;
+    }
+	
+	.left-section {
+		border-right: 0;
+		border-bottom: 3px solid #333;
+	}
+}
+
 
 .upload-area {
     display: flex;
