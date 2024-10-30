@@ -1,45 +1,33 @@
-from flask import Flask, request, jsonify
-from PIL import Image
-from ultralytics import YOLO
+import json
+import sys
 import os
+from ultralytics import YOLO
 
-app = Flask(__name__)
+# 첫 번째 인자로 받은 이미지 경로 확인
+if len(sys.argv) < 2:
+    print("Error: Please provide an image path as an argument.")
+    sys.exit(1)
 
-# 업로드 디렉토리 설정
-UPLOAD_FOLDER = 'uploads'
-os.makedirs(UPLOAD_FOLDER, exist_ok=True)  # 업로드 폴더가 없으면 생성
+image_path = sys.argv[1]
 
-# 모델 불러오기
-model = YOLO('best.pt')  # 최적 모델 파일 불러오기
+try:
+    # 모델 불러오기
+    model = YOLO('best.pt')
 
-@app.route('/predict', methods=['POST'])
-def predict():
-    # 요청에서 이미지 파일 추출
-    if 'image' not in request.files:
-        return jsonify({'error': 'No image file provided'}), 400
+    # 예측 수행
+    results = model.predict(source=[image_path])
 
-    file = request.files['image']
+    # 예측된 결과에서 식재료 이름을 추출하여 배열로 저장
+    detected_ingredients = []
+    for result in results:
+        if result.boxes is not None:  # 예측 결과가 있을 때
+            for box in result.boxes:
+                ingredient = model.names[int(box.cls)]  # 클래스 ID를 통해 식재료 이름 추출
+                detected_ingredients.append(ingredient)
 
-    # 파일 이름 안전하게 처리
-    file_path = os.path.join(UPLOAD_FOLDER, file.filename)
-    file.save(file_path)
+    # 결과를 JSON으로 반환
+    output_data = {'detected_ingredients': detected_ingredients}
+    print(json.dumps(output_data))  # JSON 출력
 
-    try:
-        # 예측 수행
-        results = model.predict(source=[file_path])
-
-        # 예측된 결과에서 식재료 이름을 추출하여 배열로 저장
-        detected_ingredients = []
-        for result in results:
-            if result.boxes is not None:  # 예측 결과가 있을 때
-                for box in result.boxes:
-                    ingredient = model.names[int(box.cls)]  # 클래스 ID를 통해 식재료 이름 추출
-                    detected_ingredients.append(ingredient)
-
-        return jsonify({'detected_ingredients': detected_ingredients})  # JSON 형식으로 응답 반환
-
-    except Exception as e:
-        return jsonify({'error': str(e)}), 500  # 예외 처리 및 에러 메시지 반환
-
-if __name__ == '__main__':
-    app.run(debug=True)
+except Exception as e:
+    print(json.dumps({'error': str(e)}))  # 에러 메시지를 JSON 형식으로 출력

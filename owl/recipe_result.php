@@ -36,10 +36,10 @@
                 $text_count = count($text_list);
                 $question = implode('|', array_map('trim', $text_list));
 
-                //$targetDir = "/var/www/html/uploads/";
-                $targetDir = "uploads/";
-                //$webDir = "/uploads/";
-                $webDir = "uploads/";
+                $targetDir = "/var/www/html/uploads/";
+                //$targetDir = "uploads/";
+                $webDir = "/uploads/";
+                //$webDir = "uploads/";
                 $filePath = '';
 
                 // 이미지 업로드 처리

@@ -1,3 +1,7 @@
+<?php
+	exec("python test.py");
+?>
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>

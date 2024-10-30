@@ -1,6 +1,6 @@
 <?php
-    //$targetDir = "/var/www/html/uploads/";
-    $targetDir = "uploads/";
+    $targetDir = "/var/www/html/test2/uploads/";
+    //$targetDir = "uploads/";
     if (!is_dir($targetDir)) {
         if (mkdir($targetDir, 0777, true) === false) {
             $error = error_get_last();
