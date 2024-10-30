@@ -20,6 +20,7 @@ header {
     font-size: 24px;
 }
 
+
 header .logo-left {
 	width: 100px;
 	flex-grow: 1;
@@ -61,31 +62,16 @@ header .made {
 }
 
 .left-section, .right-section {
+    width: 50%;
     padding: 20px;
     box-sizing: border-box;
-	width: 100%;
-	flex-grow: 1;
 }
 
 .left-section {
     border-right: 3px solid #333;
 }
 
-@media (orientation: portrait) {
-    .content {
-        flex-direction: column;
-    }
-	
-	.left-section {
-		border-right: 0;
-		border-bottom: 3px solid #333;
-	}
-}
-
 .upload-area {
-    display: flex;
-    flex-direction: column;
-	
     border: 2px solid #ccc;
     border-radius: 8px;
     padding: 40px;
@@ -96,16 +82,7 @@ header .made {
     height: 450px;
 }
 
-.upload-area-buttons {
-    display: flex;
-	flex-grow: 1;
-    flex-direction: column;
-    align-items: center;
-	justify-content: center;
-    gap: 20px;
-}
-
-.upload-area button {
+#imgChgBtn {
     padding: 10px 20px;
     font-size: 16px;
     color: white;
@@ -113,7 +90,7 @@ header .made {
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    margin-top: 160px;
+    margin-top: 195px;
 }
 
 .log-text {
@@ -137,18 +114,42 @@ header .made {
     margin: 40px 10px 20px 0;
 }
 
-.recipe-instructions {
-    font-size: 23px;
-    line-height: 1.6;
-    margin-left: 30px;
+.recipe-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 20px 0;
+    border-bottom: 1px solid #ddd;
 }
 
-.recipe-instructions p {
-    font-size: 30px;
+.recipe-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 8px;
 }
 
-.recipe-instructions li {
-    margin: 20px 0 30px 0;
+.recipe-content {
+    font-size: 18px;
+}
+
+.recipe-content h3 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.recipe-steps {
+    list-style: decimal;
+    padding-left: 20px;
+    margin-top: 5px;
+}
+
+
+.upload-change-buttons {
+    display: flex;
+    align-items: center;
+	justify-content: center;
+    gap: 20px;
 }
 
 .button {
@@ -159,43 +160,29 @@ header .made {
     font-size: 18px;
     cursor: pointer;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-	text-align: center;
+    transition: all 0.3s ease; 
+    text-align: center;
+    
+    border: none; 
+    outline: none; 
+}
+
+.button:focus {
+    outline: none; 
 }
 
 .button:hover {
     background-color: #5464d2;
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); 
 }
 
 .button:active {
-    background-color: #3f51b5;
+    background-color: #3f51b5; 
     box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
-    transform: translateY(2px);
+    transform: translateY(2px); 
 }
 
 .button.disabled {
-	pointer-events: none;
-	background-color: #6c6c6c;
-}
-
-input {
-    display: inline-block;
-    padding: 10px 20px;
-    font-size: 16px;
-    color: #333;
-    border: 2px solid #6c7ae0;
-    border-radius: 50px;
-    outline: none;
-    transition: all 0.3s ease;
-    box-sizing: border-box;
-}
-
-input:focus {
-    border-color: #5464d2;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-input::placeholder {
-    color: #bbb;
+    pointer-events: none; 
+    background-color: #6c6c6c; 
 }
