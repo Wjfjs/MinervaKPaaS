@@ -1,0 +1,13 @@
+[Unit]
+Description=Flask Application
+After=network.target
+
+[Service]
+User=www-data                # 애플리케이션을 실행할 사용자 이름
+Group=www-data               # 그룹을 www-data로 설정
+WorkingDirectory=/var/www/api # Flask 애플리케이션이 있는 경로
+Environment="PATH=/var/www/api/myenv/bin" # 환경 변수 PATH 설정
+ExecStart=/var/www/api/myenv/bin/python3 /var/www/api/app.py # 가상환경의 python 실행 경로
+
+[Install]
+WantedBy=multi-user.target    # 'multi-user.target'으로 수정
